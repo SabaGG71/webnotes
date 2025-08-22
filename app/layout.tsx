@@ -10,6 +10,24 @@ export const metadata: Metadata = {
   title: "webnotes - ვებსაიტების დამზადება",
   description:
     "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში, იხილეთ ჩვენი ნამუშევრები, მოგვწერეთ და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
+  keywords: ["ვებსაიტების დამზადება", "ვებსაიტი", "ვებდიზაინი", "SEO ოპტიმიზაცია", "webnotes"],
+  openGraph: {
+    title: "webnotes - ვებსაიტების დამზადება",
+    description:
+      "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
+    url: "https://webnotes.ge",
+    siteName: "webnotes",
+    images: [
+      {
+        url: "https://webnotes.ge/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "webnotes logo",
+      },
+    ],
+    locale: "ka_GE",
+    type: "website",
+  },
 };
 
 const sf_georgia = LocalFont({
@@ -31,7 +49,11 @@ export default function RootLayout({
     name: "Webnotes",
     url: "https://webnotes.ge",
     logo: "https://webnotes.ge/logo.svg",
-    sameAs: ["https://www.facebook.com/webnotes.ge/", "https://www.instagram.com/yourprofile"],
+    sameAs: [
+      "https://www.facebook.com/webnotes.ge/",
+      "https://www.instagram.com/webnotes_official/",
+      "https://www.linkedin.com/company/webnotes-official/",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+995511199826",
@@ -56,8 +78,8 @@ export default function RootLayout({
       },
       sameAs: [
         "https://www.facebook.com/webnotes.ge/",
-        "https://www.instagram.com/webnotes.ge",
-        "https://www.linkedin.com/company/webnotes-ge",
+        "https://www.instagram.com/webnotes_official/",
+        "https://www.linkedin.com/company/webnotes-official/",
       ],
       contactPoint: {
         "@type": "ContactPoint",
