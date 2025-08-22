@@ -1,15 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        destination: "https://webnotes.ge/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  /* config options here */
 };
 
 export default nextConfig;
