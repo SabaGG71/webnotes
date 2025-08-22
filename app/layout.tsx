@@ -4,13 +4,7 @@ import Header from "../components/general/Header";
 import LocalFont from "next/font/local";
 import Footer from "../components/general/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { NextRequest, NextResponse } from "next/server";
-
-export function middleware(req: NextRequest) {
-  const url = req.nextUrl.clone();
-  url.searchParams.delete("fbclid");
-  return NextResponse.rewrite(url);
-}
+import FbclidCleaner from "../components/general/FbClidCleaner";
 
 export const metadata: Metadata = {
   title: "webnotes - ვებსაიტების დამზადება",
@@ -91,6 +85,7 @@ export default function RootLayout({
       </head>
 
       <body className={`${sf_georgia.className} ${manrope.variable} antialiased`}>
+        <FbclidCleaner />
         <GoogleAnalytics gaId="G-16K0BNK5DV" />
         <Header />
         <div className="pt-[90px]"> {children}</div>
