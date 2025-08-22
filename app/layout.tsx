@@ -4,6 +4,13 @@ import Header from "../components/general/Header";
 import LocalFont from "next/font/local";
 import Footer from "../components/general/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { NextRequest, NextResponse } from "next/server";
+
+export function middleware(req: NextRequest) {
+  const url = req.nextUrl.clone();
+  url.searchParams.delete("fbclid");
+  return NextResponse.rewrite(url);
+}
 
 export const metadata: Metadata = {
   title: "webnotes - ვებსაიტების დამზადება",
@@ -18,8 +25,6 @@ const manrope = LocalFont({
   src: [{ path: "./(fonts)/Manrope-Medium.ttf", weight: "500", style: "normal" }],
   variable: "--manrope",
 });
-
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function RootLayout({
   children,
@@ -74,7 +79,7 @@ export default function RootLayout({
     <html lang="ka-GE">
       <head>
         <link rel="canonical" href="https://webnotes.ge" />
-
+        <meta name="robots" content="index, follow" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
@@ -86,11 +91,11 @@ export default function RootLayout({
       </head>
 
       <body className={`${sf_georgia.className} ${manrope.variable} antialiased`}>
+        <GoogleAnalytics gaId="G-16K0BNK5DV" />
         <Header />
         <div className="pt-[90px]"> {children}</div>
         <Footer />
       </body>
-      <GoogleAnalytics gaId="G-16K0BNK5DV" />
     </html>
   );
 }

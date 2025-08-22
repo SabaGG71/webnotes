@@ -1,21 +1,29 @@
+import Link from "next/link";
+
 const SocialIcons = () => {
   return (
     <div className="mt-[20px]">
       <div className="flex items-center gap-4 mb-[30px]">
-        <div className="text-[#333] w-[34px] pl-[1.5px] h-[35px] cursor-pointer hover:text-primary-500 duration-200 hover:scale-[1.03] transition-all hover:border-primary-500 flex rounded-full items-center self-center justify-center text-center border border-[#333]/50">
-          <svg
-            width="8"
-            height="23"
-            viewBox="0 0 13 27"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.1582 0V4.5H9.9043C8.21916 4.50012 8.10742 5.12928 8.10742 6.30273L8.10156 8.55469H12.1836L11.7061 13.0547H8.10156V26.1113H2.69922V13.0547H0V8.55469H2.69922V5.85352C2.69923 2.1829 4.22305 0.000151914 8.55273 0H12.1582Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
+        <a
+          rel="noopener noreferrer nofollow"
+          href="https://www.facebook.com/webnotes.ge/"
+          target="_blank"
+        >
+          <div className="text-[#333] w-[34px] pl-[1.5px] h-[35px] cursor-pointer hover:text-primary-500 duration-200 hover:scale-[1.03] transition-all hover:border-primary-500 flex rounded-full items-center self-center justify-center text-center border border-[#333]/50">
+            <svg
+              width="8"
+              height="23"
+              viewBox="0 0 13 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.1582 0V4.5H9.9043C8.21916 4.50012 8.10742 5.12928 8.10742 6.30273L8.10156 8.55469H12.1836L11.7061 13.0547H8.10156V26.1113H2.69922V13.0547H0V8.55469H2.69922V5.85352C2.69923 2.1829 4.22305 0.000151914 8.55273 0H12.1582Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </a>
         <div className="text-[#333] w-[35px] pl-[0.5px] h-[35px] cursor-pointer  hover:scale-[1.03] hover:text-primary-500 duration-200 transition-all pt-[.5px] hover:border-primary-500 flex rounded-full items-center self-center justify-center text-center border border-[#333]/50">
           <svg
             width="16"
