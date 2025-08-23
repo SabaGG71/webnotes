@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში, იხილეთ ჩვენი ნამუშევრები, მოგვწერეთ და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
   keywords: ["ვებსაიტების დამზადება", "ვებსაიტი", "ვებდიზაინი", "SEO ოპტიმიზაცია", "webnotes"],
+
+  // Open Graph ძირითადი პარამეტრები
   openGraph: {
     title: "webnotes - ვებსაიტების დამზადება",
     description:
@@ -20,20 +22,33 @@ export const metadata: Metadata = {
     siteName: "webnotes",
     images: [
       {
-        url: "https://webnotes.ge/logo.svg",
+        url: "https://webnotes.ge/open-graph.jpg", // რეკომენდებული JPG, 1200x630px
         width: 1200,
         height: 630,
-        alt: "webnotes logo",
+        alt: "webnotes - ვებსაიტების დამზადება",
       },
     ],
     locale: "ka_GE",
     type: "website",
+  },
+
+  other: {
+    "og:image:alt": "webnotes - ვებსაიტების დამზადება",
+    "og:image:type": "image/jpeg",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "twitter:card": "summary_large_image",
+    "twitter:title": "webnotes - ვებსაიტების დამზადება",
+    "twitter:description":
+      "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში, იხილეთ ჩვენი ნამუშევრები, მოგვწერეთ და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
+    "twitter:image": "https://webnotes.ge/open-graph.jpg",
   },
 };
 
 const sf_georgia = LocalFont({
   src: [{ path: "./(fonts)/SF-Georgian-Rounded.ttf", weight: "400", style: "normal" }],
 });
+
 const manrope = LocalFont({
   src: [{ path: "./(fonts)/Manrope-Medium.ttf", weight: "500", style: "normal" }],
   variable: "--manrope",
