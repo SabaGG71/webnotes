@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "webnotes",
     images: [
       {
-        url: "https://webnotes.ge/open-graph.jpg",
+        url: "https://webnotes.ge/og-fb.jpg",
         width: 1200,
         height: 630,
         alt: "webnotes - ვებსაიტების დამზადება",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "twitter:title": "webnotes - ვებსაიტების დამზადება",
     "twitter:description":
       "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში, იხილეთ ჩვენი ნამუშევრები, მოგვწერეთ და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
-    "twitter:image": "https://webnotes.ge/open-graph.jpg",
+    "twitter:image": "https://webnotes.ge/og-fb.jpg",
   },
 };
 
@@ -135,7 +135,7 @@ export default function RootLayout({
           property="og:description"
           content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
         />
-        <meta property="og:image" content="https://webnotes.ge/open-graph.jpg" />
+        <meta property="og:image" content="https://webnotes.ge/og-fb.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="webnotes.ge" />
@@ -145,7 +145,7 @@ export default function RootLayout({
           name="twitter:description"
           content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
         />
-        <meta name="twitter:image" content="https://webnotes.ge/open-graph.jpg" />
+        <meta name="twitter:image" content="https://webnotes.ge/og-fb.jpg" />
       </head>
 
       <body className={`${sf_georgia.className} ${manrope.variable} antialiased`}>
