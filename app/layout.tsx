@@ -5,6 +5,7 @@ import LocalFont from "next/font/local";
 import Footer from "../components/general/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import FbclidCleaner from "../components/general/FbClidCleaner";
+import Chatbot from "../components/general/ChatBot";
 
 export const metadata: Metadata = {
   title: "webnotes - ვებსაიტების დამზადება",
@@ -110,6 +111,7 @@ export default function RootLayout({
         <FbclidCleaner />
         <GoogleAnalytics gaId="G-16K0BNK5DV" />
         <Header />
+        <Chatbot />
         <div className="pt-[90px]"> {children}</div>
         <Footer />
       </body>
