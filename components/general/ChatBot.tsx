@@ -4,7 +4,6 @@ import { useState, FormEvent, useRef, useEffect } from "react";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent, CardHeader } from "../../components/ui/card";
-import { ScrollArea } from "../../components/ui/scroll-area";
 import { Send, X } from "lucide-react";
 import Image from "next/image";
 import lightLogo from "../../public/light-webnote.svg";
@@ -26,11 +25,9 @@ export default function Chatbot() {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Scroll ref გამოიყენება ავტომატური სკროლისთვის
   const scrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-ი ყოველთვის ბოლო მესიჯზე
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -44,11 +41,8 @@ export default function Chatbot() {
         setIsOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [containerRef]);
 
   const sendMessage = async (e: FormEvent) => {
@@ -82,11 +76,17 @@ export default function Chatbot() {
     <div ref={containerRef} className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-2">
       {/* Chat Window */}
       {isOpen && (
-        <div className="mb-2 transform transition-all duration-300 scale-100">
-          <Card className="flex max-md:w-f max-sm:z-10 max-md:fixed max-md:top-0 max-md:left-0 max-md: flex-col h-[500px] rounded-[24px] overflow-hidden w-[380px]">
+        <div
+          className={`mb-2 transform transition-all duration-300 scale-100
+                      max-md:fixed max-md:inset-0 max-md:w-full max-md:h-full max-md:m-0`}
+        >
+          <Card
+            className={`flex flex-col h-[500px] rounded-[24px] overflow-hidden w-[380px]
+                        max-md:h-full max-md:w-full max-md:rounded-none`}
+          >
             {/* Header */}
             <CardHeader className="bg-primary-900 text-white flex justify-between p-4">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-4">
                   <Image className="w-[35px] h-[35px]" src={lightLogo} alt="webnote chatbot" />
                   <h2 className="text-lg font-manrope font-[500]">AI Webnotes</h2>
@@ -106,7 +106,7 @@ export default function Chatbot() {
                 {messages.map((msg, i) => (
                   <div
                     key={i}
-                    className={`flex ${msg.sender === "user" ? "justify-end " : "justify-start"}`}
+                    className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
                       className={`px-4 py-2 rounded-2xl max-w-[75%] text-[15px] ${
@@ -121,7 +121,7 @@ export default function Chatbot() {
                 ))}
                 {loading && (
                   <div className="flex items-center gap-1">
-                    <span className="text-gray-500 text-sm ml-2 ">შეტყობინება იგზავნება... ✍️</span>
+                    <span className="text-gray-500 text-sm ml-2">შეტყობინება იგზავნება... ✍️</span>
                   </div>
                 )}
               </div>
@@ -147,17 +147,19 @@ export default function Chatbot() {
         </div>
       )}
 
-      {/* Chat Toggle Button - ყოველთვის ქვემოთ */}
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-yellow-400 hover:bg-yellow-300 text-primary-900 p-4 rounded-full flex text-base items-center justify-center transform transition-all duration-300 hover:scale-105"
-      >
-        <Image
-          className="w-[30px] max-md:w-[25px] max-md:h-[25px] opacity-80 h-[30px]"
-          src={bubble}
-          alt="bubble icon"
-        />
-      </button>
+      {/* Chat Toggle Button */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="bg-yellow-400 hover:bg-yellow-300 text-primary-900 p-4 rounded-full flex text-base items-center justify-center transform transition-all duration-300 hover:scale-105"
+        >
+          <Image
+            className="w-[30px] max-md:w-[25px] max-md:h-[25px] opacity-80 h-[30px]"
+            src={bubble}
+            alt="bubble icon"
+          />
+        </button>
+      )}
     </div>
   );
 }
