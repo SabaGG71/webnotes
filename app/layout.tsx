@@ -120,6 +120,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+
+        {/* Messenger და Facebook OG ტეგები */}
+        <meta property="og:title" content="webnotes - ვებსაიტების დამზადება" />
+        <meta
+          property="og:description"
+          content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
+        />
+        <meta property="og:image" content="https://webnotes.ge/open-graph.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://webnotes.ge" />
+        <meta property="og:type" content="website" />
       </head>
 
       <body className={`${sf_georgia.className} ${manrope.variable} antialiased`}>
