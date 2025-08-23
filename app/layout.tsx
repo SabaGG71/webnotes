@@ -121,17 +121,31 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
 
-        {/* Messenger და Facebook OG ტეგები */}
+        {/* OpenGraph.xyz-ის მიერ გენერირებული Meta ტეგები */}
+        <title>webnotes - ვებსაიტების დამზადება</title>
+        <meta
+          name="description"
+          content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
+        />
+
+        <meta property="og:url" content="https://webnotes.ge" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="webnotes - ვებსაიტების დამზადება" />
         <meta
           property="og:description"
           content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
         />
         <meta property="og:image" content="https://webnotes.ge/open-graph.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:url" content="https://webnotes.ge" />
-        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="webnotes.ge" />
+        <meta property="twitter:url" content="https://webnotes.ge" />
+        <meta name="twitter:title" content="webnotes - ვებსაიტების დამზადება" />
+        <meta
+          name="twitter:description"
+          content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
+        />
+        <meta name="twitter:image" content="https://webnotes.ge/open-graph.jpg" />
       </head>
 
       <body className={`${sf_georgia.className} ${manrope.variable} antialiased`}>
