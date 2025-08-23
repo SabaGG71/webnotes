@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "webnotes",
     images: [
       {
-        url: "https://webnotes.ge/open-graph.jpg", // რეკომენდებული JPG, 1200x630px
+        url: "https://webnotes.ge/open-graph.jpg",
         width: 1200,
         height: 630,
         alt: "webnotes - ვებსაიტების დამზადება",
