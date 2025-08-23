@@ -22,13 +22,15 @@ const Hero = () => {
         <h1 className="text-white max-sm:max-w-[400px] max-w-[600px] leading-[1.3] text-4xl max-xl:text-3xl tracking-wide max-sm:text-xl upper-case font-bold">
           ვებსაიტების დამზადება ბიზნესისთვის
         </h1>
-        <p className="text-[#fff]/90 text-lg max-sm:pr-6 max-sm:pb-6 max-sm:text-base pt-3 pb-9 line-clamp-3 max-w-[450px]">
+        <p className="text-[#fff]/90 text-lg max-sm:pr-6 max-sm:pb-6 max-sm:text-sm pt-3 pb-9 line-clamp-3 max-w-[450px]">
           ჩვენთან ყველა ვებსაიტი დამზადდება სწრაფად... ხარისხსა და დიზაინს კი თქვენ იხილავთ თავად.
           ✌️
         </p>
-        <Button className="bg-primary-400 hover:bg-primary-500 py-3 pt-[11px] px-6 gap-3 flex items-center max-sm:text-sm max-sm:h-10  text-white h-12 ">
-          გაიგე მეტი
-        </Button>
+        <Link href="/#contact">
+          <Button className="bg-primary-400 hover:bg-primary-500 py-3 pt-[11px] px-6 gap-3 flex items-center max-sm:text-sm max-sm:h-10  text-white h-12 ">
+            გაიგე მეტი
+          </Button>
+        </Link>
       </div>
       <Link href="/#gift">
         <div className="absolute select-none cursor-pointer overflow-hidden top-[60px] max-sm:top-[30px] max-sm:py-3 right-[0px] bg-[#fff]/70  group transition-all px-5 py-[15px] max-sm:gap-2 hover:px-7 rounded-l-[12px] text-[#333] flex items-center gap-3">
