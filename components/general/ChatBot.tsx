@@ -34,7 +34,6 @@ export default function Chatbot() {
     }
   }, [messages]);
 
-  // დახურვა, როცა გარეთ კლიკს ახდენს
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -72,19 +71,34 @@ export default function Chatbot() {
     }
   };
 
+  // ფუნქცია, რომელიც ტექსტში URL-ებს clickable აყენებს
+  const renderMessage = (text: string) => {
+    const parts = text.split(/(\bhttps?:\/\/[^\s]+)/g);
+    return parts.map((part, idx) => {
+      if (/https?:\/\/[^\s]+/.test(part)) {
+        // ამოჭრა ბოლო punctuation, რომ არ გადაგიყვანოს 404-ზე
+        const cleanUrl = part.replace(/[.,;!?)]*$/, "");
+        return (
+          <a
+            key={idx}
+            href={cleanUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-500 text-[14px] font-manrope hover:text-primary-400 underline break-words"
+          >
+            {cleanUrl}
+          </a>
+        );
+      }
+      return <span key={idx}>{part}</span>;
+    });
+  };
+
   return (
     <div ref={containerRef} className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-2">
-      {/* Chat Window */}
       {isOpen && (
-        <div
-          className={`mb-2 transform transition-all duration-300 scale-100
-                      max-md:fixed max-md:inset-0 max-md:w-full max-md:h-full max-md:m-0`}
-        >
-          <Card
-            className={`flex flex-col h-[500px] rounded-[24px] overflow-hidden w-[380px]
-                        max-md:h-full max-md:w-full max-md:rounded-none`}
-          >
-            {/* Header */}
+        <div className="mb-2 transform transition-all duration-300 scale-100 max-md:fixed max-md:inset-0 max-md:w-full max-md:h-full max-md:m-0">
+          <Card className="flex flex-col h-[500px] rounded-[24px] overflow-hidden w-[380px] max-md:h-full max-md:w-full max-md:rounded-none">
             <CardHeader className="bg-primary-900 text-white flex justify-between p-4">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-4">
@@ -100,7 +114,6 @@ export default function Chatbot() {
               </div>
             </CardHeader>
 
-            {/* Messages */}
             <CardContent className="flex-1 p-4 overflow-hidden bg-primary-50">
               <div ref={scrollRef} className="h-full overflow-y-auto flex flex-col space-y-4">
                 {messages.map((msg, i) => (
@@ -109,13 +122,13 @@ export default function Chatbot() {
                     className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`px-4 py-2 rounded-2xl max-w-[75%] text-[15px] ${
+                      className={`px-4 py-2 rounded-2xl max-w-[75%] text-[15px] break-words ${
                         msg.sender === "user"
                           ? "bg-primary-500 text-white rounded-br-none"
-                          : "bg-white text-primary-900 rounded-bl-none border border-gray-200"
+                          : "bg-white inline-block text-primary-900 rounded-bl-none border border-gray-200"
                       }`}
                     >
-                      {msg.text}
+                      {renderMessage(msg.text)}
                     </div>
                   </div>
                 ))}
@@ -127,7 +140,6 @@ export default function Chatbot() {
               </div>
             </CardContent>
 
-            {/* Input */}
             <form onSubmit={sendMessage} className="flex gap-2 p-4 bg-white">
               <Input
                 type="text"
@@ -147,7 +159,6 @@ export default function Chatbot() {
         </div>
       )}
 
-      {/* Chat Toggle Button */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
