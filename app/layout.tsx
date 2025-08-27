@@ -112,6 +112,9 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://webnotes.ge" />
         <meta name="robots" content="index, follow" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
