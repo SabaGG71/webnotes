@@ -72,6 +72,7 @@ body {
 }
 .prose :where(h1, h3, h4, p, ol) {
   margin: 0 !important;
+  line-height: normal !important;
   padding: 0 !important;
 }
 .prose h1 {
