@@ -70,7 +70,7 @@ body {
   font-family: var(--manrope);
   font-weight: 500;
 }
-.prose :where(h1, h2, h3, h4, p, ul, ol) {
+.prose :where(h1, h3, h4, p, ol) {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -91,7 +91,7 @@ body {
   color: #333;
   font-size: 20px;
   font-weight: 400;
-  margin-top: 35px;
+  margin: 20px 0px;
 }
 .prose ul {
   margin: 1rem 0;
