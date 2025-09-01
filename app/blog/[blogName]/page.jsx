@@ -22,6 +22,14 @@ export async function generateMetadata({ params }) {
   // UploadThing absolute URL
   const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
+  console.log("Facebook Open Graph Debug:", {
+    blogTitle: blog.title,
+    blogSlug: blog.slug,
+    originalImageUrl: blog.imageUrl,
+    finalImageUrl: blogImage,
+    blogUrl: blogUrl,
+  });
+
   return {
     title: `Webnotes - ${blog.title}`,
     description: blog.description.replace(/<[^>]*>/g, "").substring(0, 160),
@@ -80,16 +88,17 @@ const Page = async ({ params }) => {
       />
 
       <div className="relative">
-        <ShareButton blog={blog} />
         {blogImage && (
           <Image
-            src={blogImage}
-            alt={blog.title}
+            className="w-full mt-[32px] mb-[48px] h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
             width={1200}
             height={630}
-            className="w-full h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
+            src={blogImage}
+            alt={blog.title}
+            priority
           />
         )}
+        <ShareButton blog={blog} />
       </div>
 
       <h1 className="text-2xl upper-case max-sm:text-base max-lg:text-xl mt-9 mb-7 font-bold">
