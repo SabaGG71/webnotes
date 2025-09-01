@@ -28,7 +28,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/blog/ShareButton.jsx",
-    "app/blog/page/[pageNumber]/page.jsx"
+    "app/blog/page/[pageNumber]/page.jsx",
+    "components/general/Contact.jsx",
+    "app/blog/[blogName]/page.jsx",
+    "app/blog/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

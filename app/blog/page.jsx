@@ -3,7 +3,7 @@ import BlogItem from "../../components/blog/BlogItem";
 import { Metadata } from "next";
 import { NextPage } from "next";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Webnotes - ბლოგი",
   description:
     "აღმოაჩინეთ უახლესი სტატიები ტექნოლოგიებზე, AI-ზე, ვებსაიტების დამზადებასა და ონლაინ მარკეტინგზე. გაეცანით რჩევებს, ტენდენციებს და ინოვაციებს Webnotes-ის ბლოგში.",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
-const page: NextPage = () => {
+const page = () => {
   return (
     <main className="container mb-[64px]">
       <div className="my-9">

@@ -9,10 +9,10 @@ import SectionTitle from "./SectionTitle";
 import { Loader2 } from "lucide-react";
 
 const Contact = () => {
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState(null);
   const [isPending, startTransition] = useTransition();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);

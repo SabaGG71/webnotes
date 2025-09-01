@@ -11,8 +11,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  ignorePatterns: ["node_modules/", ".next/", "app/generated/prisma/**"],
 };
 
 export default nextConfig;

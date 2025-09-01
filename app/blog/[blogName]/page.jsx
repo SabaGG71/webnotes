@@ -3,28 +3,18 @@ import Image from "next/image";
 import ViewIncrementer from "../../../components/blog/ViewIncrementer";
 import Breadcrumbs from "../../../components/general/Breadcrumbs";
 import ShareButton from "../../../components/blog/ShareButton";
-import type { Metadata } from "next";
 
-interface PageProps {
-  params: { blogName: string };
-}
-
-// დინამიური metadata ფუნქცია
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }) {
   const { blogName } = params;
   const blog = await prisma.blogs.findUnique({ where: { slug: blogName } });
 
-  if (!blog) {
-    return { title: "ბლოგი ვერ მოიძებნა - Webnotes" };
-  }
-
-  return { title: `Webnotes - ${blog.title}` };
+  return { title: blog ? `Webnotes - ${blog.title}` : "Webnotes - ბლოგი ვერ მოიძებნა" };
 }
 
-const page = async ({ params }: PageProps) => {
+const Page = async ({ params }) => {
   const { blogName } = params;
-
   const blog = await prisma.blogs.findUnique({ where: { slug: blogName } });
+
   if (!blog) return <p>ბლოგი ვერ მოიძებნა!</p>;
 
   return (
@@ -64,4 +54,4 @@ const page = async ({ params }: PageProps) => {
   );
 };
 
-export default page;
+export default Page;
