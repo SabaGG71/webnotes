@@ -80,10 +80,10 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 max-sm:w-full mb-6 max-lg:grid-cols-1 gap-6 items-center">
+      <div className="grid grid-cols-2 mt-9 max-sm:w-full mb-6 max-lg:grid-cols-1 gap-6 items-center">
         {currentBlogs.map((blog) => (
           <Link href={`blog/${blog.slug}`} key={blog.id} passHref>
-            <div className="bg-[#eef4ff]/50 group shadow-sm cursor-pointer rounded-[24px] p-5">
+            <div className="bg-[#eef4ff]/50 items-stretch h-auto group shadow-sm cursor-pointer rounded-[24px] p-5">
               <div className="w-full relative overflow-hidden animate-in rounded-[18px] duration-500 transition-all">
                 <div className="absolute z-20 right-[15px] top-[15px] bg-[#FACC15] w-auto px-2 gap-2 h-[30px] flex items-center justify-center rounded-[10px]">
                   <Image className="w-[18px] h-auto" src={eyeIcon} alt="eye icon" />
@@ -101,28 +101,28 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
                   />
                 )}
               </div>
-              <div className="pt-6 pb-4 pr-4">
-                <p className="upper-case max-sm:text-sm line-clamp-3 text-primary-900  font-semibold">
+              <div className="pt-6 pb-1 pr-4">
+                <p className="upper-case text-lg max-sm:text-sm line-clamp-3 text-primary-900  font-semibold">
                   {blog.title}
                 </p>
                 <DangerousHTML blog={blog} />
-                <div className="flex items-center mt-8 justify-between">
-                  <div className="flex items-center gap-2">
-                    <Image src={time} alt="time icon" />
-                    <p className="text-sm max-sm:text-[13px] text-[#333]/70">
-                      {formatTimeAgo(blog.createdAt)}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <p className="upper-case font-semibold text-primary-900 group-hover:opacity-90 max-sm:text-[13px] pt-1">
-                      სრულად ნახვა
-                    </p>
-                    <Image
-                      className="group-hover:ml-1 duration-200 transition-all"
-                      src={rightArrow}
-                      alt="rightArrow icon"
-                    />
-                  </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Image src={time} alt="time icon" />
+                  <p className="text-sm max-sm:text-[13px] text-[#333]/70">
+                    {formatTimeAgo(blog.createdAt)}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <p className="upper-case font-semibold text-primary-900 group-hover:opacity-90 max-sm:text-[13px] pt-1">
+                    სრულად ნახვა
+                  </p>
+                  <Image
+                    className="group-hover:ml-1 duration-200 transition-all"
+                    src={rightArrow}
+                    alt="rightArrow icon"
+                  />
                 </div>
               </div>
             </div>

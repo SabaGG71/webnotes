@@ -86,6 +86,7 @@ body {
   letter-spacing: 0.6px;
   color: #333;
   opacity: 0.8;
+  margin-top: 1rem;
 }
 .prose h2 {
   letter-spacing: 0.4px;
@@ -93,7 +94,10 @@ body {
   color: #333;
   font-size: 20px;
   font-weight: 400;
-  margin: 1.3rem 0;
+  margin-top: 35px;
+}
+.prose ul {
+  margin: 1rem 0;
 }
 @media (max-width: 768px) {
   .prose h2 {
