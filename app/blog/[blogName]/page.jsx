@@ -1,8 +1,10 @@
+// app/blog/[blogName]/page.js
+
 import prisma from "../../../lib/prisma";
 import Image from "next/image";
 import ViewIncrementer from "../../../components/blog/ViewIncrementer";
 import Breadcrumbs from "../../../components/general/Breadcrumbs";
-import ShareButton from "../../../components/blog/ShareButton";
+import ShareButton from "../../../components/blog/ShareButton"; // დარწმუნდით რომ სწორედ აქედან იმპორტირდება
 
 // დინამიკური metadata
 export async function generateMetadata({ params }) {
@@ -19,16 +21,7 @@ export async function generateMetadata({ params }) {
   const blogUrl = `https://webnotes.ge/blog/${blog.slug}`;
   const currentTime = new Date().toISOString();
 
-  // UploadThing absolute URL
   const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
-
-  console.log("Facebook Open Graph Debug:", {
-    blogTitle: blog.title,
-    blogSlug: blog.slug,
-    originalImageUrl: blog.imageUrl,
-    finalImageUrl: blogImage,
-    blogUrl: blogUrl,
-  });
 
   return {
     title: `Webnotes - ${blog.title}`,
@@ -64,11 +57,10 @@ export async function generateMetadata({ params }) {
       site: "@webnotes",
     },
     alternates: { canonical: blogUrl },
-    other: { "og:image": blogImage },
+    other: { "og:image": blog.imageUrl },
   };
 }
 
-// Page component
 const Page = async ({ params }) => {
   const { blogName } = params;
   const blog = await prisma.blogs.findUnique({ where: { slug: blogName } });
@@ -87,15 +79,14 @@ const Page = async ({ params }) => {
         detailsLink={`/blog/${blog.slug}`}
       />
 
-      <div className="relative">
+      <div className="relative mt-[32px]">
         {blogImage && (
           <Image
-            className="w-full mt-[32px] mb-[48px] h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
-            width={1200}
-            height={630}
+            className="w-full h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
+            width={500}
+            height={500}
             src={blogImage}
             alt={blog.title}
-            priority
           />
         )}
         <ShareButton blog={blog} />
