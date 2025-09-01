@@ -64,8 +64,6 @@ export default function Chatbot() {
 
       const data = await response.json();
       setMessages((prev) => [...prev, { sender: "bot", text: data.text }]);
-    } catch (err) {
-      setMessages((prev) => [...prev, { sender: "bot", text: "Sorry, something went wrong." }]);
     } finally {
       setLoading(false);
     }

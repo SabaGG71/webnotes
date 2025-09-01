@@ -2,7 +2,7 @@
 import React from "react";
 
 interface blogType {
-  blog: any;
+  blog: { description: string };
 }
 
 const DangerousHTML = ({ blog }: blogType) => {

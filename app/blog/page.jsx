@@ -38,7 +38,7 @@ export const metadata = {
 const page = () => {
   return (
     <main className="container mb-[64px]">
-      <div className="my-9">
+      <div className="mt-9">
         <Breadcrumbs text="ბლოგი" link="/blog" />
       </div>
       <BlogItem currentPage={1} />

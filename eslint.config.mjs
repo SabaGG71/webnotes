@@ -10,19 +10,13 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  // Next.js + TypeScript rules
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-
-  // ჩვენი დამატებითი კონფიგურაციები
-  {
-    // გამორიცხე Prisma-ს გენერირებული ფაილები
-    ignores: ["app/generated/prisma/**"],
-
-    rules: {
-      // გამორთე `require()`-ის აკრძალვა, უბრალოდ case-ში თუ ისევ დაგჭირდა
-      "@typescript-eslint/no-require-imports": "off",
-    },
-  },
+  ...compat.extends(
+    "next/core-web-vitals",
+    "next/typescript",
+    "standard",
+    "plugin:tailwindcss/recommended",
+    "prettier",
+  ),
 ];
 
 export default eslintConfig;

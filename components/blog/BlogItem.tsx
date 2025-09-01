@@ -80,7 +80,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 max-sm:w-full container my-9 max-lg:grid-cols-1 gap-6 items-center">
+      <div className="grid grid-cols-2 max-sm:w-full mb-6 max-lg:grid-cols-1 gap-6 items-center">
         {currentBlogs.map((blog) => (
           <Link href={`blog/${blog.slug}`} key={blog.id} passHref>
             <div className="bg-[#eef4ff]/50 group shadow-sm cursor-pointer rounded-[24px] p-5">
