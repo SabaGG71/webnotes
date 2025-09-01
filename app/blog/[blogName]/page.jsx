@@ -93,7 +93,7 @@ const Page = async ({ params }) => {
         <ShareButton blog={blog} />
       </div>
 
-      <h1 className="text-2xl upper-case max-sm:text-base max-lg:text-xl mt-9 mb-7 font-bold">
+      <h1 className="text-2xl upper-case max-sm:text-base max-lg:text-xl mt-7 mb-7 font-bold">
         {blog.title}
       </h1>
 
