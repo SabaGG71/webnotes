@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   const blogUrl = `https://webnotes.ge/blog/${blog.slug}`;
   const currentTime = new Date().toISOString();
 
-  // OG სურათის absolute URL (UploadThing)
+  // UploadThing absolute URL
   const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
   return {
@@ -67,7 +67,6 @@ const Page = async ({ params }) => {
 
   if (!blog) return <p>ბლოგი ვერ მოიძებნა!</p>;
 
-  // UploadThing absolute URL
   const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
   return (
