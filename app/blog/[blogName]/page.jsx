@@ -98,7 +98,7 @@ const Page = async ({ params }) => {
       </h1>
 
       <div
-        className="prose mt-4 text-[#333]/70 prose-sm max-w-full"
+        className="prose mt-4 tracking-tight text-[#333]/70 prose-sm max-w-full"
         dangerouslySetInnerHTML={{ __html: blog.description }}
       />
     </section>
