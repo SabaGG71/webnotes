@@ -1,3 +1,9 @@
 {
-  "ignorePatterns": ["app/generated/prisma/"]
+  "extends": ["standard"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {}
 }
