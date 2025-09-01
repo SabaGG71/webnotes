@@ -19,12 +19,8 @@ export async function generateMetadata({ params }) {
   const blogUrl = `https://webnotes.ge/blog/${blog.slug}`;
   const currentTime = new Date().toISOString();
 
-  // OG სურათის absolute URL
-  const blogImage = blog.imageUrl
-    ? blog.imageUrl.startsWith("http")
-      ? blog.imageUrl
-      : `https://webnotes.ge${blog.imageUrl.startsWith("/") ? "" : "/"}${blog.imageUrl}`
-    : "https://webnotes.ge/og-fb.jpg";
+  // OG სურათის absolute URL (UploadThing)
+  const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
   return {
     title: `Webnotes - ${blog.title}`,
@@ -71,11 +67,8 @@ const Page = async ({ params }) => {
 
   if (!blog) return <p>ბლოგი ვერ მოიძებნა!</p>;
 
-  const blogImage = blog.imageUrl
-    ? blog.imageUrl.startsWith("http")
-      ? blog.imageUrl
-      : `https://webnotes.ge${blog.imageUrl.startsWith("/") ? "" : "/"}${blog.imageUrl}`
-    : "https://webnotes.ge/og-fb.jpg";
+  // UploadThing absolute URL
+  const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
   return (
     <section className="container mt-9">
@@ -89,13 +82,15 @@ const Page = async ({ params }) => {
 
       <div className="relative">
         <ShareButton blog={blog} />
-        <Image
-          src={blogImage}
-          alt={blog.title}
-          width={1200}
-          height={630}
-          className="w-full h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
-        />
+        {blogImage && (
+          <Image
+            src={blogImage}
+            alt={blog.title}
+            width={1200}
+            height={630}
+            className="w-full h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
+          />
+        )}
       </div>
 
       <h1 className="text-2xl upper-case max-sm:text-base max-lg:text-xl mt-9 mb-7 font-bold">
