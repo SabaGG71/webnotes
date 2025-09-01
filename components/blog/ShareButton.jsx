@@ -3,14 +3,15 @@ import { FacebookShareButton } from "next-share";
 import share from "../../public/icons/share.svg";
 import React from "react";
 
-const ShareButton = ({ blog }) => {
+const ShareButton = ({ blog, imageUrl }) => {
   return (
     <div>
       <FacebookShareButton
         url={`https://webnotes.ge/blog/${blog.slug}`}
         quote={blog.title}
-        hashtag="#webnotes #ბლოგი"
-        beforeOnClick={() => console.log("გაზიარებული ბლოგი:", blog.title)}
+        title={blog.title}
+        media={imageUrl}
+        hashtag={`#webnotes`}
       >
         <div
           title="გააზიარე ბლოგი"

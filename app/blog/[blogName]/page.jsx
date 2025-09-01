@@ -117,7 +117,7 @@ const Page = async ({ params }) => {
 
       <div>
         <div className="relative">
-          <ShareButton blog={blog} />
+          <ShareButton blog={blog} imageUrl={blog.imageUrl} />
           {blog.imageUrl && (
             <Image
               className="w-full h-[500px] max-md:h-[300px] rounded-[24px] object-cover"
