@@ -1,0 +1,25 @@
+"use client";
+import { FacebookShareButton } from "next-share";
+import share from "../../public/icons/share.svg";
+import React from "react";
+
+const ShareButton = ({ blog }) => {
+  return (
+    <div>
+      <div
+        title="გააზიარე ბლოგი"
+        className="absolute bg-primary-500 w-[50px] flex items-center justify-center text-center rounded-[12px] h-[50px] left-[20px] bottom-[20px] hover:bg-primary-400 duration-200 transition-all cursor-pointer"
+      >
+        <FacebookShareButton
+          media={blog.imageUrl}
+          url={`https://webnotes.ge/blog/${blog.slug}`}
+          quote={blog.title}
+        >
+          <img src={share.src} alt="share" />
+        </FacebookShareButton>
+      </div>
+    </div>
+  );
+};
+
+export default ShareButton;

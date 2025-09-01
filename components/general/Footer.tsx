@@ -12,7 +12,7 @@ const Footer = () => {
         </p>
         <SocialIcons />
         <Link
-          href="privacy"
+          href="/privacy"
           className="hover:underline max-sm:text-sm hover:text-primary-500 duration-200 transition-all"
         >
           წესები და პირობები

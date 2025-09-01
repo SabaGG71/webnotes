@@ -49,6 +49,64 @@ body {
     transform: translateY(0%);
   }
 }
+.tiptap-link {
+  color: #2563eb;
+  text-decoration: underline;
+  text-decoration-color: #93c5fd;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+}
+.tiptap-link:hover {
+  color: #1d4ed8;
+  text-decoration-color: #3b82f6;
+  background-color: #eff6ff;
+  padding: 1px 2px;
+  border-radius: 3px;
+}
+.tiptap-link:visited {
+  color: #7c3aed;
+}
+.tiptap-link:active {
+  color: #dc2626;
+}
+.prose a {
+  color: #1552fd;
+  text-decoration: underline;
+  font-family: var(--manrope);
+  font-weight: 500;
+}
+.prose h1 {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  margin: 1.7rem 0;
+  font-feature-settings: "case" on;
+}
+.prose p {
+  letter-spacing: 0.6px;
+  color: #333;
+  opacity: 0.8;
+}
+.prose h2 {
+  letter-spacing: 0.4px;
+  font-feature-settings: "case" on;
+  color: #333;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 1.3rem 0;
+}
+@media (max-width: 768px) {
+  .prose h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .prose p {
+    font-size: 13px;
+  }
+}
+.prose {
+  margin-bottom: 64px;
+}
 @layer base {
   :root {
     --background: #ffffff;

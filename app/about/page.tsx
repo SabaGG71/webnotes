@@ -4,7 +4,7 @@ import aboutImage from "../../public/about-image.webp";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "webnotes - ჩვენს შესახებ",
+  title: "Webnotes - ჩვენს შესახებ",
   description:
     "Webnotes ქმნის ინოვაციურ ვებსაიტებს, SEO ოპტიმიზაციას და AI ინტეგრაციებს თქვენი ბრენდის გასაძლიერებლად. ჩვენი მიზანია შექმნათ უნიკალური, თანამედროვე და მომხმარებელზე ორიენტირებული ციფრული გამოცდილება.",
 };

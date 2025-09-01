@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const SocialIcons = () => {
   return (
     <div className="mt-[20px]">

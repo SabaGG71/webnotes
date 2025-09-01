@@ -31,9 +31,20 @@ const NavLinks = () => {
             ჩვენს შესახებ
           </Link>
         </li>
+
         <li>
           <Link className="hover:text-primary-500 duration-200 transition-all" href="/#services">
             სერვისები
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`${
+              pathName === "/blog" ? "text-primary-500" : "text-[#333]"
+            } hover:text-primary-500 duration-200 transition-all`}
+            href="/blog"
+          >
+            ბლოგი
           </Link>
         </li>
         <li>
@@ -41,6 +52,7 @@ const NavLinks = () => {
             ფასები
           </Link>
         </li>
+
         <li>
           <Link className="hover:text-primary-500 duration-200 transition-all" href="/#contact">
             <Button className="flex items-center pr-[17px] gap-3">
@@ -87,6 +99,7 @@ const NavLinks = () => {
                 ჩვენს შესახებ
               </Link>
             </li>
+
             <li>
               <Link
                 onClick={() => setIsShow(false)}
@@ -94,6 +107,17 @@ const NavLinks = () => {
                 href="/#services"
               >
                 სერვისები
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={() => setIsShow(false)}
+                className={`${
+                  pathName === "/blog" ? "text-primary-500" : "text-[#333]"
+                } hover:text-primary-500 duration-200 transition-all`}
+                href="/blog"
+              >
+                ბლოგი
               </Link>
             </li>
             <li>

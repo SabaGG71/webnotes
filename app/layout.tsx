@@ -8,14 +8,14 @@ import FbclidCleaner from "../components/general/FbClidCleaner";
 import Chatbot from "../components/general/ChatBot";
 
 export const metadata: Metadata = {
-  title: "webnotes - ვებსაიტების დამზადება",
+  title: "Webnotes - ვებსაიტების დამზადება",
   description:
     "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში, იხილეთ ჩვენი ნამუშევრები, მოგვწერეთ და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
   keywords: ["ვებსაიტების დამზადება", "ვებსაიტი", "ვებდიზაინი", "SEO ოპტიმიზაცია", "webnotes"],
 
   // Open Graph ძირითადი პარამეტრები
   openGraph: {
-    title: "webnotes - ვებსაიტების დამზადება",
+    title: "Webnotes - ვებსაიტების დამზადება",
     description:
       "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
     url: "https://webnotes.ge",

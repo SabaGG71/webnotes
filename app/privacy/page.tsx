@@ -3,7 +3,7 @@ import Breadcrumbs from "../../components/general/Breadcrumbs";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "webnotes - წესები და პირობები",
+  title: "Webnotes - წესები და პირობები",
   description:
     "გაიცანით Webnotes-ის წესები და პირობები — ვებსაიტების დამზადება, SEO ოპტიმიზაცია და AI ინტეგრაცია. აქ იხილავთ ჩვენი მომსახურების დეტალურ პირობებს, გადახდის წესებსა და ინტელექტუალური უფლებების პოლიტიკას.",
 };
