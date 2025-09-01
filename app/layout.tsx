@@ -1,3 +1,5 @@
+// app/layout.js
+
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/general/Header";
@@ -31,16 +33,14 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  other: {
-    "og:image:alt": "webnotes - ვებსაიტების დამზადება",
-    "og:image:type": "image/jpeg",
-    "og:image:width": "1200",
-    "og:image:height": "630",
-    "twitter:card": "summary_large_image",
-    "twitter:title": "webnotes - ვებსაიტების დამზადება",
-    "twitter:description":
+  twitter: {
+    card: "summary_large_image",
+    title: "webnotes - ვებსაიტების დამზადება",
+    description:
       "გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში, იხილეთ ჩვენი ნამუშევრები, მოგვწერეთ და მიიღეთ თქვენზე მორგებული გადაწყვეტილება.",
-    "twitter:image": "https://webnotes.ge/og-fb.jpg",
+    images: ["https://webnotes.ge/og-fb.jpg"],
+    creator: "@webnotes",
+    site: "@webnotes",
   },
 };
 
@@ -122,32 +122,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-
-        {/* OpenGraph.xyz-ის მიერ გენერირებული Meta ტეგები */}
-        <title>webnotes - ვებსაიტების დამზადება</title>
-        <meta
-          name="description"
-          content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
-        />
-
-        <meta property="og:url" content="https://webnotes.ge" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="webnotes - ვებსაიტების დამზადება" />
-        <meta
-          property="og:description"
-          content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
-        />
-        <meta property="og:image" content="https://webnotes.ge/og-fb.jpg" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="webnotes.ge" />
-        <meta property="twitter:url" content="https://webnotes.ge" />
-        <meta name="twitter:title" content="webnotes - ვებსაიტების დამზადება" />
-        <meta
-          name="twitter:description"
-          content="გაიგეთ რა ღირს ვებსაიტის დამზადება webnotes-ში და მიიღეთ თქვენზე მორგებული გადაწყვეტილება."
-        />
-        <meta name="twitter:image" content="https://webnotes.ge/og-fb.jpg" />
       </head>
 
       <body className={`${sf_georgia.className} ${manrope.variable} antialiased`}>

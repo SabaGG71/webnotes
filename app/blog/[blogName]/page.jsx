@@ -4,7 +4,7 @@ import prisma from "../../../lib/prisma";
 import Image from "next/image";
 import ViewIncrementer from "../../../components/blog/ViewIncrementer";
 import Breadcrumbs from "../../../components/general/Breadcrumbs";
-import ShareButton from "../../../components/blog/ShareButton"; // დარწმუნდით რომ სწორედ აქედან იმპორტირდება
+import ShareButton from "../../../components/blog/ShareButton";
 
 // დინამიკური metadata
 export async function generateMetadata({ params }) {
@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
   const blogUrl = `https://webnotes.ge/blog/${blog.slug}`;
   const currentTime = new Date().toISOString();
 
+  // ეს URL აიღება მონაცემთა ბაზიდან ან ნაგულისხმევი სურათი
   const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
   return {
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }) {
       site: "@webnotes",
     },
     alternates: { canonical: blogUrl },
-    other: { "og:image": blog.imageUrl },
+    other: { "og:image": blogImage },
   };
 }
 
