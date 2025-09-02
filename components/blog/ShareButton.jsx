@@ -11,7 +11,7 @@ export default function ShareButton({ blog }) {
   return (
     <>
       <FacebookShareButton url={url} quote={quote} hashtag="#webnotes #ბლოგი">
-        <div className="bg-primary-500 hover:bg-primary-400 absolute bottom-[45px] left-6 duration-300 transition-all cursor-pointer w-12 h-12 flex items-center justify-center rounded-[12px] p-3">
+        <div className="bg-primary-500 hover:bg-primary-400 absolute bottom-[45px] max-lg:top-[15px] max-lg:left-[15px] left-6 duration-300 transition-all cursor-pointer w-12 h-12 flex items-center justify-center rounded-[12px] p-3">
           <Image src={share} alt="share-icon" className="object-contain" />
         </div>
       </FacebookShareButton>
