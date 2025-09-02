@@ -6,7 +6,8 @@ import Breadcrumbs from "../../../components/general/Breadcrumbs";
 import ShareButton from "../../../components/blog/ShareButton";
 import { unstable_cache } from "next/cache";
 
-export const getBlog = unstable_cache(
+// Server-side cache
+const getBlog = unstable_cache(
   async (slug) => {
     return await prisma.blogs.findUnique({ where: { slug } });
   },
@@ -14,60 +15,6 @@ export const getBlog = unstable_cache(
   { revalidate: 300, tags: ["blogs"] },
 );
 
-export async function generateMetadata({ params }) {
-  const { blogName } = params;
-  const blog = await getBlog(blogName);
-
-  if (!blog) {
-    return {
-      title: "Webnotes - ბლოგი ვერ მოიძებნა",
-      description: "ბლოგი ვერ მოიძებნა",
-    };
-  }
-
-  const blogUrl = `https://webnotes.ge/blog/${blog.slug}`;
-  const currentTime = new Date().toISOString();
-  const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
-
-  return {
-    title: `Webnotes - ${blog.title}`,
-    description: blog.description.replace(/<[^>]*>/g, "").substring(0, 160),
-    openGraph: {
-      title: blog.title,
-      description: blog.description.replace(/<[^>]*>/g, "").substring(0, 160),
-      url: blogUrl,
-      siteName: "Webnotes",
-      images: [
-        {
-          url: blogImage,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-          type: "image/jpeg",
-        },
-      ],
-      locale: "ka_GE",
-      type: "article",
-      updatedTime: currentTime,
-      publishedTime: blog.createdAt,
-      author: "Webnotes",
-      section: "ბლოგი",
-      tags: ["webnotes", "ბლოგი", "ტექნოლოგია", "ვებსაიტების დამზადება"],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: blog.title,
-      description: blog.description.replace(/<[^>]*>/g, "").substring(0, 160),
-      images: [blogImage],
-      creator: "@webnotes",
-      site: "@webnotes",
-    },
-    alternates: { canonical: blogUrl },
-    other: { "og:image": blogImage },
-  };
-}
-
-// ================== Page Component ==================
 const Page = async ({ params }) => {
   const { blogName } = params;
   const blog = await getBlog(blogName);
@@ -113,3 +60,4 @@ const Page = async ({ params }) => {
 };
 
 export default Page;
+export { getBlog };
