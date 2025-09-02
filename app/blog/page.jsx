@@ -1,9 +1,24 @@
-// app/blog/page.tsx
+// app/blog/page.jsx
 import Breadcrumbs from "../../components/general/Breadcrumbs";
 import BlogItem from "../../components/blog/BlogItem";
-import prisma from "../../lib/prisma"; // შენი Prisma client
+import prisma from "../../lib/prisma";
+import { unstable_cache } from "next/cache";
 
-// Metadata
+// ================== Server-side cache ==================
+const getBlogs = unstable_cache(
+  async () => {
+    return await prisma.blogs.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 20,
+    });
+  },
+  ["blogs"],
+  {
+    revalidate: 300,
+    tags: ["blogs"],
+  },
+);
+
 export const metadata = {
   title: "Webnotes - ბლოგი",
   description:
@@ -36,27 +51,8 @@ export const metadata = {
   },
 };
 
-// ✅ ISR caching: გვერდი განახლდება ყოველ 5 წუთში
-export const revalidate = 300; // seconds
-
-// Prisma + Next.js caching helper
-import { unstable_cache } from "next/cache";
-
-export const getBlogs = unstable_cache(
-  async () => {
-    return await prisma.blogs.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 20,
-    });
-  },
-  ["blogs"],
-  {
-    revalidate: 300, // 5 წუთში ერთხელ განახლდება cache
-    tags: ["blogs"], // ხელით გასუფთავება შესაძლებელია ახალი ბლოგის დამატებისას
-  },
-);
-
-const page = async () => {
+// ================== Page Component ==================
+const Page = async () => {
   const blogs = await getBlogs();
 
   return (
@@ -69,4 +65,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;
