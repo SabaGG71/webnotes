@@ -92,6 +92,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
                 </div>
                 {blog.imageUrl && (
                   <Image
+                    quality={100}
                     width={280}
                     height={280}
                     className="rounded-[18px] group-hover:opacity-90 w-full h-[280px] max-lg:w-full lg:object-cover max-xl:h-auto select-none"
