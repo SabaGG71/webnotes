@@ -1,8 +1,9 @@
+// app/blog/page.tsx
 import Breadcrumbs from "../../components/general/Breadcrumbs";
 import BlogItem from "../../components/blog/BlogItem";
-import { Metadata } from "next";
-import { NextPage } from "next";
+import prisma from "../../lib/prisma"; // შენი Prisma client
 
+// Metadata
 export const metadata = {
   title: "Webnotes - ბლოგი",
   description:
@@ -35,13 +36,35 @@ export const metadata = {
   },
 };
 
-const page = () => {
+// ✅ ISR caching: გვერდი განახლდება ყოველ 5 წუთში
+export const revalidate = 300; // seconds
+
+// Prisma + Next.js caching helper
+import { unstable_cache } from "next/cache";
+
+export const getBlogs = unstable_cache(
+  async () => {
+    return await prisma.blogs.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 20,
+    });
+  },
+  ["blogs"],
+  {
+    revalidate: 300, // 5 წუთში ერთხელ განახლდება cache
+    tags: ["blogs"], // ხელით გასუფთავება შესაძლებელია ახალი ბლოგის დამატებისას
+  },
+);
+
+const page = async () => {
+  const blogs = await getBlogs();
+
   return (
     <main className="container mb-[64px]">
       <div className="mt-9">
         <Breadcrumbs text="ბლოგი" link="/blog" />
       </div>
-      <BlogItem currentPage={1} />
+      <BlogItem blogs={blogs} currentPage={1} />
     </main>
   );
 };

@@ -1,15 +1,22 @@
-// app/blog/[blogName]/page.js
-
+// app/blog/[blogName]/page.jsx
 import prisma from "../../../lib/prisma";
 import Image from "next/image";
 import ViewIncrementer from "../../../components/blog/ViewIncrementer";
 import Breadcrumbs from "../../../components/general/Breadcrumbs";
 import ShareButton from "../../../components/blog/ShareButton";
+import { unstable_cache } from "next/cache";
 
-// დინამიკური metadata
+export const getBlog = unstable_cache(
+  async (slug) => {
+    return await prisma.blogs.findUnique({ where: { slug } });
+  },
+  ["blog"],
+  { revalidate: 300, tags: ["blogs"] },
+);
+
 export async function generateMetadata({ params }) {
   const { blogName } = params;
-  const blog = await prisma.blogs.findUnique({ where: { slug: blogName } });
+  const blog = await getBlog(blogName);
 
   if (!blog) {
     return {
@@ -20,8 +27,6 @@ export async function generateMetadata({ params }) {
 
   const blogUrl = `https://webnotes.ge/blog/${blog.slug}`;
   const currentTime = new Date().toISOString();
-
-  // ეს URL აიღება მონაცემთა ბაზიდან ან ნაგულისხმევი სურათი
   const blogImage = blog.imageUrl || "https://webnotes.ge/og-fb.jpg";
 
   return {
@@ -62,9 +67,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// ================== Page Component ==================
 const Page = async ({ params }) => {
   const { blogName } = params;
-  const blog = await prisma.blogs.findUnique({ where: { slug: blogName } });
+  const blog = await getBlog(blogName);
 
   if (!blog) return <p>ბლოგი ვერ მოიძებნა!</p>;
 
