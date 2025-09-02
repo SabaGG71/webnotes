@@ -83,6 +83,7 @@ const Page = async ({ params }) => {
       <div className="relative mt-[32px]">
         {blogImage && (
           <Image
+            quality={100}
             className="w-full h-auto max-lg:h-auto rounded-[24px] object-cover"
             width={500}
             height={500}
