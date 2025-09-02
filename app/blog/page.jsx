@@ -15,7 +15,7 @@ export const metadata = {
     siteName: "Webnotes",
     images: [
       {
-        url: "https://webnotes.ge/og-fb.jpg", // თქვენი საწყისი/default OG ფოტო
+        url: "https://webnotes.ge/og-fb.jpg",
         width: 1200,
         height: 630,
         alt: "webnotes ბლოგი",

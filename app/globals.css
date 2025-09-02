@@ -70,7 +70,7 @@ body {
   font-family: var(--manrope);
   font-weight: 500;
 }
-.prose :where(h1, h3, h4, p, ol) {
+.prose :where(h1, h2, h3, h4, p, ol) {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -78,20 +78,21 @@ body {
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 0.4px;
-  margin: 1.7rem 0;
   font-feature-settings: "case" on;
 }
 .prose p {
   color: #333;
+  letter-spacing: 0.1px;
   opacity: 0.8;
+  margin-top: 15px !important;
 }
 .prose h2 {
   letter-spacing: 0.4px;
   font-feature-settings: "case" on;
   color: #333;
   font-size: 20px;
+  margin-top: 30px !important;
   font-weight: 400;
-  margin: 30px 0px 20px 0;
 }
 .prose ul {
   margin: 1rem 0;
