@@ -9,6 +9,7 @@ import Link from "next/link";
 import DangerousHTML from "./DangerousHTML";
 import { formatViewCount, formatTimeAgo } from "../../lib/utils";
 import { Loader2 } from "lucide-react";
+import Breadcrumbs from "../general/Breadcrumbs";
 
 interface Blog {
   id: string;
@@ -51,7 +52,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
     return () => clearInterval(interval);
   }, []);
 
-  const firstPageCount = 4;
+  const firstPageCount = 6;
   const otherPagesCount = 6;
 
   const totalBlogs = blogs.length;
@@ -79,7 +80,10 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 mt-9 max-sm:w-full mb-6 max-lg:grid-cols-1 gap-6 items-center">
+      <div className="mt-9 container">
+        <Breadcrumbs text="ბლოგი" link="/blog" />
+      </div>
+      <div className="grid container grid-cols-2 mt-9 max-sm:w-full mb-6 max-lg:grid-cols-1 gap-6 items-center">
         {currentBlogs.map((blog) => (
           <Link href={`blog/${blog.slug}`} key={blog.id} passHref>
             <div className="bg-[#eef4ff]/50 items-stretch h-auto group shadow-sm cursor-pointer rounded-[24px] p-5 max-sm:p-4">
@@ -95,7 +99,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
                     quality={100}
                     width={280}
                     height={280}
-                    className="rounded-[18px] group-hover:opacity-90 w-full h-[280px] max-lg:w-full lg:object-cover max-xl:h-auto select-none"
+                    className="rounded-[18px] group-hover:opacity-90 w-full xl:h-[280px] max-lg:w-full lg:object-cover max-xl:h-auto select-none"
                     src={blog.imageUrl}
                     alt="ai blog image"
                   />

@@ -56,10 +56,7 @@ const Page = async () => {
   const blogs = await getBlogs();
 
   return (
-    <main className="container mb-[64px]">
-      <div className="mt-9">
-        <Breadcrumbs text="ბლოგი" link="/blog" />
-      </div>
+    <main className="container">
       <BlogItem blogs={blogs} currentPage={1} />
     </main>
   );
