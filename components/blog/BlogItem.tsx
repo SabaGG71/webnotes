@@ -52,7 +52,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
     return () => clearInterval(interval);
   }, []);
 
-  const firstPageCount = 6;
+  const firstPageCount = 8;
   const otherPagesCount = 6;
 
   const totalBlogs = blogs.length;
@@ -106,7 +106,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
                 )}
               </div>
               <div className="pt-6 pb-1 max-sm:pb-0 pr-4">
-                <p className="upper-case mb-[20px] text-lg max-sm:text-[15px] line-clamp-3 text-[#333] max-md:leading-6 text-primary-900  font-[700]">
+                <p className="upper-case mb-[20px] text-lg max-sm:text-[15px] line-clamp-3 text-[#333] max-md:leading-6 text-primary-900 font-[700]">
                   {blog.title}
                 </p>
                 <DangerousHTML blog={blog} />
