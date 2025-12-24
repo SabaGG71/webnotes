@@ -53,7 +53,7 @@ const BlogItem = ({ currentPage }: BlogItemProps) => {
   }, []);
 
   const firstPageCount = 8;
-  const otherPagesCount = 6;
+  const otherPagesCount = 8;
 
   const totalBlogs = blogs.length;
   const totalPages =
